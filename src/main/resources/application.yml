@@ -1,0 +1,44 @@
+server:
+  port: 8183
+
+spring:
+  main:
+    banner-mode: off
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+  datasource:
+    hikari:
+      pool-name: hikari-cp
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: restgo.uz@gmail.com
+    password: lhbsefmxnytnmidr
+    properties:
+      mail:
+        smtp:
+          auth: true
+          connection-timeout: 5000
+          timeout: 5000
+          write-timeout: 5000
+          starttls:
+            enable: true
+          socket-factory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+# Jwt
+jwt:
+  # token is valid 24 hours
+  token-validity-in-seconds: 86400
+  # This token must be encoded using Base64 with mininum 88 Bits (you can type `echo 'secret-key'|base64` on your command line)
+  base64-secret: ZmQ0ZGI5NjQ0MDQwY2I4MjMxY2Y3ZmI3MjdhN2ZmMjNhODViOTg1ZGE0NTBjMGM4NDA5NzYxMjdjOWMwYWRmZTBlZjlhNGY3ZTg4Y2U3YTE1ODVkZDU5Y2Y3OGYwZWE1NzUzNWQ2YjFjZDc0NGMxZWU2MmQ3MjY1NzJmNTE0MzI=
+
+## External Web services
+apis:
+  currency-info: https://nbu.uz/uz/exchange-rates/json
+#logging:
+#  level:
+#    org:
+#      springframework: debug
